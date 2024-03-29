@@ -23,6 +23,9 @@ module.exports = {
         grey1:"#5D5D5D",
         pop_green: "#04544B",
         whites: "#FFFFE7",
+        gray_border: "#CACACA",
+        black_shade: "#868686",
+        white_yellow:"#FFFFE7",
       },
       dropShadow: {
         'custom-green' : '0 4px 3px rgba(130, 255, 111, 0.4)',
@@ -38,6 +41,8 @@ module.exports = {
         'lato' : ['Lato', 'sans-serif'],
         'abessinica' : [ "Abyssinica SIL", 'serif'],
         'gilroy': ['Gilroy', 'sans-serif'],
+        'ABeeZee':["ABeeZee", 'sans-serif'],
+        'Rogue':["Rogue_Sans", 'sans-serif'],
       },
     },
   },

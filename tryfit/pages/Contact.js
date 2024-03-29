@@ -1,6 +1,33 @@
 import Header from "@/components/Header";
+import Accordian from "@/components/accordian";
 import MyMapComponent from "@/components/googlemap"
+import { useState } from "react";
+
+const accordianData = [
+    {
+        title: "Lorem ipsum dolor sit amet, consectetur",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+    },
+    {
+        title: "Lorem ipsum dolor sit amet, consectetur",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+    },
+    {
+        title: "This is Demo title 1",
+        desc: "New Description",
+    },
+    
+]
+
 export default function Contact(){
+    const [open,setOpen] =useState(false)
+    const toggle = (index) => {
+        if(open === index){
+            return setOpen(null)
+        }
+
+        setOpen(index)
+    }
     return(
         <div>
             <Header />
@@ -83,21 +110,7 @@ export default function Contact(){
 
             {/* Find Us On Maps */}
 
-            <div className="text-white mt-48 items-center text-center">
-                <div className="flex text-8xl font-aventa text-center justify-center gap-4">
-                    <h2>Find us on </h2>
-                    <h2 className="text-btn_hover">Maps</h2>
-                </div>
-            </div>
-            <div className="grid grid-cols-[1.2fr_0.8fr] text-white ml-40 mt-28">
-                <div>
-                    <h2 className=" max-w-md text-5xl font-aventa">123 Main Street, Apt.5 Sector 5, Noida India</h2>
-                </div>
-                <div className=" text-right items-end">
-                    <h2 className=" max-w-md text-5xl font-aventa">8 Am - 5 Pm Sunday</h2>
-                </div>     
-            </div>
-            <MyMapComponent />
+            
 
 
             {/* FAQ Section */}
@@ -119,6 +132,13 @@ export default function Contact(){
                 <div>
                     <h2 className=" font-aventa_bold text-4xl">Why FAQs</h2>
                     <h2 className=" mt-4 text-2xl max-w-2xl font-aventa">These are some of the most frequent qeustion recieved do go through this, But we are always there for you</h2>
+                    <section className="text-white h-[600px] grid place-items-start">
+                        <div className="px-[40px] max-w-[800px]">
+                            {accordianData.map((data,index) => {
+                                return <Accordian key={index} open={index === open } title={data.title} desc={data.desc} toggle={() => toggle(index)}/>
+                            })}
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
